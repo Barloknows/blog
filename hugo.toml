@@ -1,4 +1,4 @@
-baseURL = 'https://barloknows.github.io/'
+baseURL = 'https://barloknows.github.io/blog/'
 languageCode = 'en-us'
 title = 'Barloknows'
 theme = 'barloknows'
