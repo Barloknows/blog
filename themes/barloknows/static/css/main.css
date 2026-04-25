@@ -11,8 +11,8 @@
   --green: oklch(62% 0.15 155);
   --mono:  'JetBrains Mono', monospace;
   --sans:  'Syne', sans-serif;
-  --w:     720px;
-  --pad:   40px;
+  --w:     1600px;
+  --pad:   48px;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -21,7 +21,7 @@ html, body {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--sans);
-  font-size: 20px;
+  font-size: 18px;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }
@@ -127,19 +127,19 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 16px;
 }
 .intro__headline {
-  font-size: clamp(24px, 3.5vw, 40px);
+  font-size: clamp(32px, 4vw, 56px);
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.1;
   color: var(--fg);
   margin-bottom: 16px;
-  max-width: 640px;
+  max-width: 900px;
 }
 .intro__bio {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--fg2);
   line-height: 1.85;
-  max-width: 480px;
+  max-width: 720px;
   margin-bottom: 22px;
 }
 .intro__links {
@@ -187,21 +187,21 @@ a { color: inherit; text-decoration: none; }
 }
 
 .featured__title {
-  font-size: clamp(24px, 3vw, 40px);
+  font-size: clamp(28px, 3.5vw, 52px);
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.15;
   margin-bottom: 16px;
   color: var(--fg);
-  max-width: 720px;
+  max-width: 1000px;
   transition: color 0.15s;
 }
 .featured__title:hover { color: #fff; }
 .featured__excerpt {
-  font-size: 15px;
+  font-size: 17px;
   color: var(--fg2);
   line-height: 1.85;
-  max-width: 620px;
+  max-width: 860px;
 }
 .post-tags {
   display: flex;
@@ -238,8 +238,8 @@ a:hover .read-link,
 .post-grid {
   padding-top: 40px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  column-gap: 52px;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  column-gap: 64px;
 }
 .post-grid__item {
   padding: 28px 0;
@@ -255,7 +255,7 @@ a:hover .read-link,
   margin-bottom: 10px;
 }
 .post-grid__title {
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.35;
@@ -264,7 +264,7 @@ a:hover .read-link,
   transition: color 0.12s;
 }
 .post-grid__excerpt {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--fg2);
   line-height: 1.78;
 }
@@ -333,7 +333,7 @@ a:hover .read-link,
   align-items: start;
 }
 .post-body {
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.9;
   color: var(--fg2);
 }
@@ -567,4 +567,5 @@ a:hover .read-link,
   .post-grid {
     grid-template-columns: 1fr;
   }
+}
 }
