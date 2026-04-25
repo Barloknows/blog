@@ -1,0 +1,8 @@
+name        = "Barloknows"
+license     = "MIT"
+licenselink = "https://opensource.org/licenses/MIT"
+description = "A dark, minimal blog theme for security researchers and CPTS candidates."
+homepage    = "https://github.com/yourusername/barloknows"
+tags        = ["blog", "dark", "minimal", "security", "monospace"]
+features    = ["blog", "syntax highlighting", "table of contents", "tags"]
+min_version = "0.110.0"

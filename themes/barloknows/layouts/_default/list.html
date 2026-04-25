@@ -1,0 +1,40 @@
+{{ define "main" }}
+<main class="site-main">
+
+  <div class="list-header fu fu-1">
+    <p class="list-header__eyebrow">
+      {{ if .IsHome }}ALL POSTS
+      {{ else if eq .Kind "taxonomy" }}TAG
+      {{ else }}ARCHIVE{{ end }}
+    </p>
+    <h1 class="list-header__title">{{ .Title }}</h1>
+  </div>
+
+  <div class="list-posts post-grid fu fu-2">
+    {{ range .Pages }}
+    <a href="{{ .Permalink }}" class="post-grid__item">
+      <div class="post-grid__header">
+        <div class="post-meta">
+          {{ with .Params.categories }}
+            {{ range first 1 . }}
+            <span class="post-meta__cat post-meta__cat--{{ . | urlize }}">{{ . }}</span>
+            {{ end }}
+          {{ end }}
+          <span class="post-meta__date">{{ .Date.Format "Jan 2, 2006" }}</span>
+        </div>
+        <span class="post-meta__read">{{ .ReadingTime }} min</span>
+      </div>
+      <h3 class="post-grid__title">{{ .Title }}</h3>
+      <p class="post-grid__excerpt">{{ .Params.excerpt | default (.Summary | plainify | truncate 120) }}</p>
+      <div class="post-grid__tags">
+        {{ range .Params.tags }}
+        <span>{{ . }}</span>
+        {{ end }}
+      </div>
+    </a>
+    {{ end }}
+    <hr class="post-grid__divider" />
+  </div>
+
+</main>
+{{ end }}

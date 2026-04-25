@@ -1,0 +1,58 @@
+{{ define "main" }}
+
+<div class="post-header">
+  {{ partial "kitt.html" . }}
+  <div class="post-header__inner">
+    <a href="/posts/" class="back-link">← posts</a>
+
+    <div class="post-meta">
+      {{ with .Params.categories }}
+        {{ range first 1 . }}
+        <span class="post-meta__cat post-meta__cat--{{ . | urlize }}">{{ . }}</span>
+        {{ end }}
+      {{ end }}
+      <span class="post-meta__date">{{ .Date.Format "Jan 2, 2006" }}</span>
+      <span class="post-meta__read">· {{ .ReadingTime }} min read</span>
+    </div>
+
+    <h1 class="post-title">{{ .Title }}</h1>
+
+    {{ with .Params.excerpt }}
+    <p class="post-excerpt">{{ . }}</p>
+    {{ end }}
+
+    {{ with .Params.tags }}
+    <div class="post-tags">
+      {{ range . }}
+      <a href="/tags/{{ . | urlize }}/" class="post-tags__tag">{{ . }}</a>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</div>
+
+<div class="post-body-wrap">
+  <article class="post-body">
+    {{ .Content }}
+  </article>
+
+  <aside class="toc-sidebar">
+    {{ if .TableOfContents }}
+    <div class="toc-label">CONTENTS</div>
+    {{ .TableOfContents }}
+    {{ end }}
+
+    {{ with .Params.tags }}
+    <div class="tag-cloud">
+      <div class="tag-cloud__label">TAGS</div>
+      <div class="tag-cloud__tags">
+        {{ range . }}
+        <a href="/tags/{{ . | urlize }}/">{{ . }}</a>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </aside>
+</div>
+
+{{ end }}

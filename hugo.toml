@@ -1,0 +1,32 @@
+baseURL = 'https://yourusername.github.io/'
+languageCode = 'en-us'
+title = 'Barloknows'
+theme = 'barloknows'
+
+[markup]
+  [markup.highlight]
+    style = 'monokai'
+    lineNos = false
+    tabWidth = 2
+    noClasses = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+    ordered = false
+  [markup.goldmark.renderer]
+    unsafe = true
+
+[params]
+  description = "HTB writeups, CPTS module notes, tool breakdowns. Written in real time."
+  tagline    = "Notes from someone still figuring it out."
+  bio        = "HTB writeups, CPTS module notes, tool breakdowns. Written in real time — some of this will be wrong, and I'll update it when I figure out why."
+  github     = "https://github.com/yourusername"
+  linkedin   = "https://linkedin.com/in/yourusername"
+  htb        = "https://app.hackthebox.com/users/0"
+
+[taxonomies]
+  tag      = "tags"
+  category = "categories"
+
+[pagination]
+  pagerSize = 20

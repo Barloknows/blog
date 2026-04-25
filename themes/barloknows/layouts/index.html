@@ -1,0 +1,74 @@
+{{ define "main" }}
+<main class="site-main">
+
+  {{/* ── Intro ── */}}
+  <section class="intro fu fu-1">
+    <p class="intro__eyebrow">CPTS CANDIDATE</p>
+    <h1 class="intro__headline">{{ .Site.Params.tagline }}</h1>
+    <p class="intro__bio">{{ .Site.Params.bio }}</p>
+    <ul class="intro__links">
+      {{ with .Site.Params.github }}<li><a href="{{ . }}" target="_blank" rel="noopener">GitHub</a></li>{{ end }}
+      {{ with .Site.Params.linkedin }}<li><a href="{{ . }}" target="_blank" rel="noopener">LinkedIn</a></li>{{ end }}
+      {{ with .Site.Params.htb }}<li><a href="{{ . }}" target="_blank" rel="noopener">HTB Profile</a></li>{{ end }}
+    </ul>
+  </section>
+
+  {{/* ── Featured (latest) post ── */}}
+  {{ $posts := where .Site.RegularPages "Section" "posts" }}
+  {{ $posts = $posts.ByDate.Reverse }}
+  {{ with index $posts 0 }}
+  <section class="featured fu fu-2">
+    {{ partial "kitt.html" . }}
+    <a href="{{ .Permalink }}" class="featured-link">
+      <div class="post-meta">
+        {{ with .Params.categories }}
+          {{ range first 1 . }}
+          <span class="post-meta__cat post-meta__cat--{{ . | urlize }}">{{ . }}</span>
+          {{ end }}
+        {{ end }}
+        <span class="post-meta__date">{{ .Date.Format "Jan 2, 2006" }}</span>
+        <span class="post-meta__read">· {{ .ReadingTime }} min</span>
+      </div>
+      <h2 class="featured__title">{{ .Title }}</h2>
+      <p class="featured__excerpt">{{ .Params.excerpt | default (.Summary | plainify) }}</p>
+      <div class="post-tags">
+        {{ range .Params.tags }}
+        <span class="post-tags__tag">{{ . }}</span>
+        {{ end }}
+        <span class="read-link">read →</span>
+      </div>
+    </a>
+  </section>
+  {{ end }}
+
+  {{/* ── Post grid ── */}}
+  {{ if gt (len $posts) 1 }}
+  <section class="post-grid fu fu-3">
+    {{ range after 1 $posts }}
+    <a href="{{ .Permalink }}" class="post-grid__item">
+      <div class="post-grid__header">
+        <div class="post-meta">
+          {{ with .Params.categories }}
+            {{ range first 1 . }}
+            <span class="post-meta__cat post-meta__cat--{{ . | urlize }}">{{ . }}</span>
+            {{ end }}
+          {{ end }}
+          <span class="post-meta__date">{{ .Date.Format "Jan 2, 2006" }}</span>
+        </div>
+        <span class="post-meta__read">{{ .ReadingTime }} min</span>
+      </div>
+      <h3 class="post-grid__title">{{ .Title }}</h3>
+      <p class="post-grid__excerpt">{{ .Params.excerpt | default (.Summary | plainify | truncate 120) }}</p>
+      <div class="post-grid__tags">
+        {{ range .Params.tags }}
+        <span>{{ . }}</span>
+        {{ end }}
+      </div>
+    </a>
+    {{ end }}
+    <hr class="post-grid__divider" />
+  </section>
+  {{ end }}
+
+</main>
+{{ end }}
