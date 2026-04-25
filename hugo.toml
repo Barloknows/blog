@@ -1,4 +1,4 @@
-baseURL = 'https://yourusername.github.io/'
+baseURL = 'https://barloknows.github.io/'
 languageCode = 'en-us'
 title = 'Barloknows'
 theme = 'barloknows'
@@ -20,9 +20,9 @@ theme = 'barloknows'
   description = "HTB writeups, CPTS module notes, tool breakdowns. Written in real time."
   tagline    = "Notes from someone still figuring it out."
   bio        = "HTB writeups, CPTS module notes, tool breakdowns. Written in real time — some of this will be wrong, and I'll update it when I figure out why."
-  github     = "https://github.com/yourusername"
-  linkedin   = "https://linkedin.com/in/yourusername"
-  htb        = "https://app.hackthebox.com/users/0"
+  github     = "https://github.com/barloknows"
+  linkedin   = "https://linkedin.com/in/robert-barling-70461b100"
+  htb        = "https://app.hackthebox.com/users/Barloknows"
 
 [taxonomies]
   tag      = "tags"
